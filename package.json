@@ -1,0 +1,38 @@
+{
+  "name": "service-transaction-intern",
+  "version": "1.0.0",
+  "description": "```javascript\r {\r       uid: DataTypes.STRING,\r       referral: DataTypes.STRING,\r       cara_pembayaran: DataTypes.STRING,\r       email: DataTypes.STRING,\r       alamat: DataTypes.STRING,\r       harga: DataTypes.STRING,\r       desa: DataTypes.STRING,\r       harga_kesepakatan: DataTypes.STRING,\r       kavling: DataTypes.STRING,\r       kecamatan: DataTypes.STRING,\r       keterangan: DataTypes.STRING,\r       kota: DataTypes.STRING,\r       nama_developer: DataTypes.STRING,\r       no_hp: DataTypes.STRING,\r       no_spr: DataTypes.STRING,\r       npwp: DataTypes.STRING,\r       provinsi: DataTypes.STRING,\r       tag: DataTypes.ARRAY(DataTypes.STRING),\r       tipe: DataTypes.STRING,\r       url_foto_ktp: DataTypes.TEXT,\r       tanggal_transaksi: DataTypes.BIGINT, // epoch\r       status: {\r         type: DataTypes.ENUM(\r           \"pending\",\r           \"belum_bayar\",\r           \"progress\",\r           \"realisasi\",\r           \"lunas\",\r           \"batal\"\r         ),\r         defaultValue: \"belum_bayar\",\r       },\r       uang_muka: DataTypes.BIGINT,\r       booking_fee: DataTypes.BIGINT,\r       created_at: DataTypes.BIGINT,\r       updated_at: DataTypes.BIGINT,\r       deleted_at: DataTypes.BIGINT,\r       created_by: DataTypes.JSON,\r       updated_by: DataTypes.JSON,\r }\r ```\r ### * Model Payment\r ```javascript\r {\r       uid: DataTypes.STRING,\r       transaksi_id: DataTypes.STRING,\r       nama_lengkap: DataTypes.STRING,\r       url: DataTypes.TEXT,\r       no_spr: DataTypes.STRING,\r       perumahan: DataTypes.STRING,\r       kavling: DataTypes.STRING,\r       no_hp: DataTypes.STRING,\r       jenis_pembayaran: DataTypes.STRING,\r       nama_pembayaran: DataTypes.STRING,\r       keterangan_pembayaran: DataTypes.STRING,\r       jumlah_pembayaran: DataTypes.STRING,\r       status_pembayaran: {\r         type: DataTypes.ENUM(\r           \"lunas\",\r           \"pending\",\r           \"belum_lunas\",\r           \"akan_jatuh_tempo\",\r           \"terhutang\",\r           \"dibatalkan\",\r           \"diajukan\",\r           \"ditolak\",\r           \"diajukan_ulang\",\r           \"diajukan_dihapus\",\r           \"diajukan_lunas\",\r           \"dihapus\"\r         ),\r         defaultValue: \"belum_lunas\",\r       },\r       tanggal_pembayaran: DataTypes.BIGINT,\r       created_at: DataTypes.BIGINT,\r       updated_at: DataTypes.BIGINT,\r       deleted_at: DataTypes.BIGINT,\r       created_by: DataTypes.JSON,\r       updated_by: DataTypes.JSON,\r }\r ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/andalan-solusi-cemerlang/internship/service-transaction-intern.git"
+  },
+  "author": "SellyBintangMelananda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/andalan-solusi-cemerlang/internship/service-transaction-intern/issues"
+  },
+  "homepage": "https://gitlab.com/andalan-solusi-cemerlang/internship/service-transaction-intern#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "firebase": "^10.4.0",
+    "firebase-admin": "^11.11.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.0.1",
+    "path": "^0.12.7",
+    "pg": "^8.11.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.33.0"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.1"
+  }
+}

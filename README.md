@@ -1,7 +1,9 @@
 # Service Transaction Intern
 
 ## - `Models`
-### * Model Transaction
+
+### \* Model Transaction
+
 ```javascript
 {
       uid: DataTypes.STRING,
@@ -45,7 +47,9 @@
       updated_by: DataTypes.JSON,
 }
 ```
-### * Model Payment
+
+### \* Model Payment
+
 ```javascript
 {
       uid: DataTypes.STRING,
@@ -87,50 +91,43 @@
 ```
 
 ## - `Functions`
-### * Function Transaction
+
+### \* Function Transaction
+
 ```javascript
 router.get("/getDataTransaksi/:uid");
+// gatau
 router.get("/ambilDaftarTransaksi");
-router.get(
-  "/ambilDaftarTransaksiDeveloper/:nama_developer",
-);
+router.get("/ambilDaftarTransaksiDeveloper/:nama_developer");
+// gatau
 router.get("/findTransaksi");
-router.get(
-  "/printLaporanTransaksi/:transaksi_id",
-);
-router.post("/ambilTransakasiByKavling",);
+
+router.get("/printLaporanTransaksi/:transaksi_id");
+router.post("/ambilTransakasiByKavling");
 router.post(
   "/saveDataTransaksi",
-  addTransaksi.fields([
-    { name: "pembayaran", maxCount: 1 },
-    { name: "ktp", maxCount: 1 },
-  ]),
+  addTransaksi.fields([{ name: "ktp", maxCount: 1 }])
 );
-router.post("/laporanTransaksi",);
+router.post("/laporanTransaksi");
 
-router.patch(
-  "/updateTransaksi",
-);
-router.patch("/batalkanTransaksi/:uid", );
+router.patch("/updateTransaksi");
+router.patch("/batalkanTransaksi/:uid");
 
-router.patch(
-  "/hapusTransaksi",
-);
+router.patch("/hapusTransaksi");
 router.patch("/ubahStatusTransaksi/:uid");
 router.patch("/ubahTransaksi/:uid");
 ```
-### * Function Payment
+
+### \* Function Payment
+
 ```javascript
 router.get("/ambilDaftarPembayaran");
+// gatau bedanya apa sama bawahnya
 router.get("/getDataPembayaran/:uid");
 router.get("/ambilPembayaranByUid/:uid");
-router.get(
-  "/getDataPembayaranDariTransaction/:uid"
-);
+router.get("/getDataPembayaranDariTransaction/:uid");
 router.get("/findPendingTransaksi/:perumahan");
-router.post(
-  "/ambilDaftarPembayaranByStatus/:status"
-);
+router.post("/ambilDaftarPembayaranByStatus/:status");
 router.post("/saveDataPembayaran");
 router.post("/uploadTransfer/:uid");
 router.patch("/updateStatusPembayaran/:uid");
