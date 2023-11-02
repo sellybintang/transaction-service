@@ -1,0 +1,1069 @@
+http:
+  port: 8080
+admin:
+  port: 9876
+  host: localhost
+
+# Service Endpoints
+serviceEndpoints:
+  httpbin:
+    url: 'https://httpbin.org'
+    
+# service transaction
+  transactionEndpoints:
+    url: 'http://localhost:3015/'
+
+# service tender
+  tenderEndpoints: 
+    url: 'https://httpbin.org'
+
+# service wallet
+  walletEndpoints:
+    url: 'https://httpbin.org'
+
+
+###API ENDPOINT###
+apiEndpoints:
+  api:
+    host: localhost
+    paths: '/ip'
+
+
+# AUTHENTICATION
+  register:
+    paths: '/register'
+  loginn:
+    paths: '/loginn'
+  listUser:
+    paths: '/listUser'
+##service Transaction (3015)##
+# 1. Fungsi Transaction
+  #POST
+  saveDataTransaksi:
+    paths: '/saveDataTransaksi'
+  ambilTransakasiByKavling:
+    paths: '/ambilTransakasiByKavling'
+  #PATCH
+  hapusTransaksi:
+    paths: '/hapusTransaksi'
+  updateTransaksi:
+    paths: '/updateTransaksi'
+  batalkanTransaksi:
+    paths: '/batalkanTransaksi/:uid'
+  ubahStatusTransaksi:
+    paths: '/ubahStatusTransaksi/:uid'
+  ubahTransaksi:
+    paths: '/ubahTransaksi/:uid'
+  #GET
+  getDataTransaksi:
+    paths: '/getDataTransaksi/:uid'
+  ambilDataTransaksi:
+    paths: '/ambilDataTransaksi'
+  ambilDaftarTransaksiDeveloper:
+    paths: '/ambilDaftarTransaksiDeveloper/:nama_developer'
+  printLaporanTransaksi:
+    paths: '/printLaporanTransaksi/:transaksi_id'
+  laporanTransaksi:
+    paths: '/laporanTransaksi'
+  findTransaksi:
+    paths: '/findTransaksi'
+
+
+# 2. Fungsi Payment
+   #POST
+  saveDataPembayaran:
+    paths: '/saveDataPembayaran'
+  #GET
+  ambilDaftarPembayaranByStatus:
+    paths: '/ambilDaftarPembayaranByStatus/:status'
+  ambilDaftarPembayaran:
+    paths: '/ambilDaftarPembayaran'
+  findPendingTransakasi:
+    paths: '/findPendingTransakasi/:perumahan'
+  getDataPembayaranDariTransaction:
+    paths: '/getDataPembayaranDariTransaction/:uid'
+  ambilPembayaranByUid:
+    paths: '/ambilPembayaranByUid/:uid'
+  getDataPembayaran:
+    paths: '/getDataPembayaran/:uid'
+  #DELETE
+  hapusPembayaran:
+    paths: '/hapusPembayaran/:uid'
+  #PATCH
+  updateStatusPembayaran:
+    paths: '/updateStatusPembayaran/:uid'
+  updatePembayaran:
+    paths: '/updatePembayaran/:uid'
+  uploadTransfer:
+    paths: '/uploadTransfer/:uid'
+
+
+##service Tender(3012)##
+#1.Tender
+  #POST
+  hubungiAgen:
+    paths: '/hubungiAgen'
+  tenderChoice:
+    paths: '/tenderChoice'
+  pilihAgenTender:
+    paths: '/pilihAgenTender'
+  aturJadwalSurvei:
+    paths: '/aturJadwalSurvei'
+  buatKavling:
+    paths: '/buatKavling/:id'
+  hubungiAgenDenganQR:
+    paths: '/hubungiAgenDenganQR'
+  confirmationPurchase:
+    paths: '/confirmationPurchase/:id'
+  cancelTender:
+    paths: '/cancelTender/:id'
+  #DELETE
+  DeleteHubungiAgenId:
+    paths: '/DeleteHubungiAgenId/:id'
+  DeleteHubungiAgenIdPermanen:
+    paths: '/DeleteHubungiAgenIdPermanen/:id'
+  #GET
+  daftarSemuaTender:
+    paths: '/daftarSemuaTender'
+  daftarAgenTender:
+    paths: '/daftarAgenTender'
+  daftarTender:
+    paths: '/daftarTender'
+  agenda:
+    paths: '/agenda'
+  checkUserHasAuction:
+    paths: '/checkUserHasAuction'
+  auctionIsTimeup:
+    paths: '/auctionIsTimeup'
+  getAuctionFromCollectionByIdFollower:
+    paths: '/getAuctionFromCollectionByIdFollower'
+  getAuctionFromId:
+    paths: '/getAuctionFromId/:id'
+  tenderAgenTersedia:
+    paths: '/tenderAgenTersedia'
+  daftarSemuaTenderByAdmin:
+    paths: '/daftarSemuaTenderByAdmin'
+
+
+##service Wallet(3013)##
+#1.Activities
+  #POST
+  ajukanPenarikan:
+    paths: '/ajukanPenarikan/:user_id'
+  kredit:
+    paths: '/kredit/:user_id'
+  debit:
+    paths: '/debit/:user_id'
+  #PATCH
+  ubahPengajuan:
+    paths: '/ubahPengajuan/:withdraw_id'
+  ubahDebit:
+    paths: '/ubahDebit/:withdraw_id'
+  #GET
+  dataPengajuan:
+    paths: '/dataPengajuan/:withdraw_id'
+  daftarPengajuan:
+    paths: '/daftarPengajuan/'
+  daftarPengajuan_by_user:
+    paths: '/daftarPengajuan/:user_id'
+  aktivitasku:
+    paths: '/aktivitasku/:user_id'
+  riwayatTerakhir:
+    paths: '/riwayatTerakhir/:user_id'
+  riwayatMasuk:
+    paths: '/riwayatMasuk/:user_id'
+  riwayatKeluar:
+    paths: '/riwayatKeluar/:user_id'
+  riwayatPengajuan:
+    paths: '/riwayatPengajuan'
+
+#2.Wallet
+  #POST
+  buatDompet:
+    paths: '/buatDompet'
+  #GET
+  semuadompet:
+    paths: '/semuadompet'
+  dompetku:
+    paths: '/dompetku/:user_id'
+  #PATCH
+  updateDompet:
+    paths: '/updateDompet/:user_id'
+  #DELETE
+  hapusDompet:
+    paths: '/hapusDompet/:user_id'
+
+
+
+policies:
+  - basic-auth
+  - cors
+  - expression
+  - key-auth
+  - log
+  - oauth2
+  - proxy
+  - rate-limit
+pipelines:
+  default:
+    apiEndpoints:
+      - api
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: httpbin 
+              changeOrigin: true
+
+
+#Authentication
+  register:
+      apiEndpoints:
+        - register
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'POST'
+        - proxy:
+            - action:
+                serviceEndpoint: transactionEndpoints
+                changeOrigin: true
+  loginn:
+      apiEndpoints:
+        - loginn
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'POST'
+        - proxy:
+            - action:
+                serviceEndpoint: transactionEndpoints
+                changeOrigin: true
+  listUser:
+      apiEndpoints:
+        - listUser
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: transactionEndpoints
+                changeOrigin: true
+
+
+#Transaction Service
+#1.Transaction 
+  saveDataTransaksi:
+    apiEndpoints:
+      - saveDataTransaksi
+    policies:
+      - cors:
+          - action:
+              origin: '*'
+              methods: 'POST'
+      - proxy:
+          - action:
+              serviceEndpoint: transactionEndpoints
+              changeOrigin: true
+  ambilTransakasiByKavling:
+      apiEndpoints:
+        - ambilTransakasiByKavling
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'POST'
+        - proxy:
+            - action:
+                serviceEndpoint: transactionEndpoints
+                changeOrigin: true
+
+  hapusTransaksi:
+      apiEndpoints:
+        - hapusTransaksi
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'PATCH'
+        - proxy:
+            - action:
+                serviceEndpoint: transactionEndpoints
+                changeOrigin: true
+
+  updateTransaksi:
+      apiEndpoints:
+        - updateTransaksi
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'PATCH'
+        - proxy:
+            - action:
+                serviceEndpoint: transactionEndpoints
+                changeOrigin: true
+
+  batalkanTransaksi:
+      apiEndpoints:
+        - batalkanTransaksi
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'PATCH'
+        - proxy:
+            - action:
+                serviceEndpoint: transactionEndpoints
+                changeOrigin: true                      
+  ubahStatusTransaksi:
+    apiEndpoints:
+      - ubahStatusTransaksi
+    policies:
+      - cors:
+          - action:
+              origin: '*'
+              methods: 'PATCH'
+      - proxy:
+          - action:
+              serviceEndpoint: transactionEndpoints
+              changeOrigin: true
+  ubahTransaksi:
+      apiEndpoints:
+        - ubahTransaksi
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'PATCH'
+        - proxy:
+            - action:
+                serviceEndpoint: transactionEndpoints
+                changeOrigin: true
+
+  getDataTransaksi:
+      apiEndpoints:
+        - getDataTransaksi
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: transactionEndpoints
+                changeOrigin: true
+
+  ambilDataTransaksi:
+      apiEndpoints:
+        - ambilDataTransaksi
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: transactionEndpoints
+                changeOrigin: true
+
+  ambilDaftarTransaksiDeveloper:
+      apiEndpoints:
+        - ambilDaftarTransaksiDeveloper
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: transactionEndpoints
+                changeOrigin: true 
+
+  printLaporanTransaksi:
+      apiEndpoints:
+        - printLaporanTransaksi
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: transactionEndpoints
+                changeOrigin: true
+
+  laporanTransaksi:
+      apiEndpoints:
+        - laporanTransaksi
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: transactionEndpoints
+                changeOrigin: true
+
+  findTransaksi:
+      apiEndpoints:
+        - findTransaksi
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: transactionEndpoints
+                changeOrigin: true 
+
+
+#2. Payment
+  saveDataPembayaran:
+      apiEndpoints:
+        - saveDataPembayaran
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'POST'
+        - proxy:
+            - action:
+                serviceEndpoint: transactionEndpoints
+                changeOrigin: true 
+
+  ambilDaftarPembayaranByStatus:
+      apiEndpoints:
+        - ambilDaftarPembayaranByStatus
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: transactionEndpoints
+                changeOrigin: true 
+
+  ambilDaftarPembayaran:
+      apiEndpoints:
+        - ambilDaftarPembayaran
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: transactionEndpoints
+                changeOrigin: true 
+
+  findPendingTransakasi:
+      apiEndpoints:
+        - findPendingTransakasi
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: transactionEndpoints
+                changeOrigin: true
+
+  getDataPembayaranDariTransaction:
+      apiEndpoints:
+        - getDataPembayaranDariTransaction
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: transactionEndpoints
+                changeOrigin: true 
+
+  ambilPembayaranByUid:
+      apiEndpoints:
+        - ambilPembayaranByUid
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: transactionEndpoints
+                changeOrigin: true 
+
+  getDataPembayaran:
+      apiEndpoints:
+        - getDataPembayaran
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: transactionEndpoints
+                changeOrigin: true 
+
+  hapusPembayaran:
+      apiEndpoints:
+        - hapusPembayaran
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'DELETE'
+        - proxy:
+            - action:
+                serviceEndpoint: transactionEndpoints
+                changeOrigin: true
+
+  updateStatusPembayaran:
+      apiEndpoints:
+        - updateStatusPembayaran
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: transactionEndpoints
+                changeOrigin: true 
+
+  updatePembayaran:
+      apiEndpoints:
+        - updatePembayaran
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: transactionEndpoints
+                changeOrigin: true 
+
+  uploadTransfer:
+      apiEndpoints:
+        - uploadTransfer
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: transactionEndpoints
+                changeOrigin: true 
+
+
+##Service Tender
+  #1.Tender
+  hubungiAgen:
+      apiEndpoints:
+        - hubungiAgen
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'POST'
+        - proxy:
+            - action:
+                serviceEndpoint: tenderEndpoints
+                changeOrigin: true 
+
+  tenderChoice:
+      apiEndpoints:
+        - tenderChoice
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'POST'
+        - proxy:
+            - action:
+                serviceEndpoint: tenderEndpoints
+                changeOrigin: true 
+
+  pilihAgenTender:
+      apiEndpoints:
+        - pilihAgenTender
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'POST'
+        - proxy:
+            - action:
+                serviceEndpoint: tenderEndpoints
+                changeOrigin: true 
+
+  aturJadwalSurvei:
+      apiEndpoints:
+        -  aturJadwalSurvei
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'POST'
+        - proxy:
+            - action:
+                serviceEndpoint: tenderEndpoints
+                changeOrigin: true
+
+  buatKavling:
+      apiEndpoints:
+        - buatKavling
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'POST'
+        - proxy:
+            - action:
+                serviceEndpoint: tenderEndpoints
+                changeOrigin: true 
+
+  hubungiAgenDenganQR:
+      apiEndpoints:
+        - hubungiAgenDenganQR
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'POST'
+        - proxy:
+            - action:
+                serviceEndpoint: tenderEndpoints
+                changeOrigin: true 
+
+  confirmationPurchase:
+      apiEndpoints:
+        - confirmationPurchase
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'POST'
+        - proxy:
+            - action:
+                serviceEndpoint: tenderEndpoints
+                changeOrigin: true 
+
+  cancelTender:
+      apiEndpoints:
+        - cancelTender
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'POST'
+        - proxy:
+            - action:
+                serviceEndpoint: tenderEndpoints
+                changeOrigin: true
+
+  DeleteHubungiAgenId:
+      apiEndpoints:
+        - DeleteHubungiAgenId
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'DELETE'
+        - proxy:
+            - action:
+                serviceEndpoint: tenderEndpoints
+                changeOrigin: true 
+
+  DeleteHubungiAgenIdPermanen:
+      apiEndpoints:
+        -  DeleteHubungiAgenIdPermanen
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'DELETE'
+        - proxy:
+            - action:
+                serviceEndpoint: tenderEndpoints
+                changeOrigin: true 
+
+  daftarSemuaTender:
+      apiEndpoints:
+        - daftarSemuaTender
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: tenderEndpoints
+                changeOrigin: true 
+
+  daftarAgenTender:
+      apiEndpoints:
+        -  daftarAgenTender
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: tenderEndpoints
+                changeOrigin: true
+
+  daftarTender:
+      apiEndpoints:
+        - daftarTender
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: tenderEndpoints
+                changeOrigin: true 
+
+  agenda:
+      apiEndpoints:
+        - agenda
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: tenderEndpoints
+                changeOrigin: true 
+
+  checkUserHasAuction:
+      apiEndpoints:
+        - checkUserHasAuction
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: tenderEndpoints
+                changeOrigin: true 
+
+  auctionIsTimeup:
+      apiEndpoints:
+        - auctionIsTimeup
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: tenderEndpoints
+                changeOrigin: true
+
+  getAuctionFromCollectionByIdFollower:
+      apiEndpoints:
+        - getAuctionFromCollectionByIdFollower
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: tenderEndpoints
+                changeOrigin: true 
+
+  getAuctionFromId:
+      apiEndpoints:
+        - getAuctionFromId
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: tenderEndpoints
+                changeOrigin: true 
+
+  tenderAgenTersedia:
+      apiEndpoints:
+        - tenderAgenTersedia
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: tenderEndpoints
+                changeOrigin: true 
+
+  daftarSemuaTenderByAdmin:
+      apiEndpoints:
+        - daftarSemuaTenderByAdmin
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: tenderEndpoints
+                changeOrigin: true
+
+##Wallet Service
+  #1.Activities
+  ajukanPenarikan:
+      apiEndpoints:
+        - ajukanPenarikan
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'POST'
+        - proxy:
+            - action:
+                serviceEndpoint: walletEndpoints
+                changeOrigin: true
+
+  kredit:
+      apiEndpoints:
+        - kredit
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'DELETE'
+        - proxy:
+            - action:
+                serviceEndpoint: walletEndpoints
+                changeOrigin: true 
+
+  debit:
+      apiEndpoints:
+        -  debit
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'DELETE'
+        - proxy:
+            - action:
+                serviceEndpoint: walletEndpoints
+                changeOrigin: true 
+
+  ubahPengajuan:
+      apiEndpoints:
+        - ubahPengajuan
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'PATCH'
+        - proxy:
+            - action:
+                serviceEndpoint: walletEndpoints
+                changeOrigin: true 
+
+  ubahDebit:
+      apiEndpoints:
+        -  ubahDebit
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'PATCH'
+        - proxy:
+            - action:
+                serviceEndpoint: walletEndpoints
+                changeOrigin: true
+
+  dataPengajuan:
+      apiEndpoints:
+        - dataPengajuan
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: walletEndpoints
+                changeOrigin: true 
+
+  daftarPengajuan:
+      apiEndpoints:
+        - daftarPengajuan
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: walletEndpoints
+                changeOrigin: true 
+
+  daftarPengajuan_by_user:
+      apiEndpoints:
+        - daftarPengajuan_by_user
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: walletEndpoints
+                changeOrigin: true 
+
+  aktivitasku:
+      apiEndpoints:
+        - aktivitasku
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: walletEndpoints
+                changeOrigin: true
+
+  riwayatTerakhir:
+      apiEndpoints:
+        - riwayatTerakhir
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: walletEndpoints
+                changeOrigin: true 
+
+  riwayatMasuk:
+      apiEndpoints:
+        - riwayatMasuk
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: walletEndpoints
+                changeOrigin: true 
+
+  riwayatKeluar:
+      apiEndpoints:
+        - riwayatKeluar
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: walletEndpoints
+                changeOrigin: true 
+
+  riwayatPengajuan:
+      apiEndpoints:
+        - riwayatPengajuan
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: walletEndpoints
+                changeOrigin: true
+  #2.Wallet
+  buatDompet:
+      apiEndpoints:
+        - buatDompet
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'POST'
+        - proxy:
+            - action:
+                serviceEndpoint: walletEndpoints
+                changeOrigin: true
+
+  semuadompet:
+      apiEndpoints:
+        - semuadompet
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: walletEndpoints
+                changeOrigin: true 
+
+  dompetku:
+      apiEndpoints:
+        - dompetku
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'GET'
+        - proxy:
+            - action:
+                serviceEndpoint: walletEndpoints
+                changeOrigin: true 
+
+  updateDompet:
+      apiEndpoints:
+        - updateDompet
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'PATCH'
+        - proxy:
+            - action:
+                serviceEndpoint: walletEndpoints
+                changeOrigin: true 
+
+  hapusDompet:
+      apiEndpoints:
+        - hapusDompet
+      policies:
+        - cors:
+            - action:
+                origin: '*'
+                methods: 'DELETE'
+        - proxy:
+            - action:
+                serviceEndpoint: walletEndpoints
+                changeOrigin: true
